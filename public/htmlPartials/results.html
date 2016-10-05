@@ -1,0 +1,62 @@
+<!-- Full results section wrapper -->
+<div class="results" ng-app="CupOfExcellenceApp">
+
+    <!-- full banner table wrapper including title -->
+    <section class="bannerTable" ng-controller="GetScoresCtrl as vm">
+
+        <h2 class="contentHeading"> And The Winner Is... </h2>
+
+        <!-- banner table and star wrapper -->
+        <div> <img src="../IMG/Star.gif" alt="star" id="star-left"/>
+            <table>
+                <tr ng-repeat="(key,value) in vm.roasterScores | orderBy: '-score'">
+                    <td> {{vm.rank[$index] | ordinalSuffix}} </td> <td> {{value.name}} </td> <td> Overall Score: {{value.score}} </td>
+                </tr>
+            </table> <!-- closes banner table -->
+            <img src="../IMG/Star.gif" alt="star" id="star-right"/>
+        </div> <!-- closes banner table with star images -->
+
+    </section> <!-- closes the full banner table div including title-->
+
+    <!-- full wrapper of tabular results table including toggle buttons -->
+    <section ng-controller="TableResultsHeaderCtrl as vm">
+
+        <!-- button wrapper -->
+        <div class="button">
+            <button id="individualResult" ng-click="vm.setResultsCategory('individual')"> Individual Results </button>
+            <button id="roasterResult" ng-click="vm.setResultsCategory('roaster')"> Roaster Results </button>
+        </div> <!-- closes button div -->
+
+        <!-- wrapper of tabular results including dropdown menu -->
+        <div class = "tabularResults">
+
+            <!-- Wrap individual results table -->
+            <section class="individual table-results">
+                <h2 class="contentHeading tooltips" tooltip="display me"> {{vm.tableHeading | capitalize}} </h2>
+
+
+                <!-- dropdown menu wrapper for individuals -->
+                <div class="dropdown" >
+                    <p> Select Whose Results to See</p>
+                    <select id="individual" ng-model="vm.resultsDesired"
+                            ng-options="results for results in vm.dropDownArray"
+                            ng-change="vm.setResultsTable(vm.resultsCategory,vm.resultsDesired)">
+                    </select>
+                </div> <!-- closes dropdown menu div -->
+
+                <!-- dynamically generated results table -->
+                <table >
+                    <tr>
+                        <td> {{vm.resultsDesired}} </td> <td ng-repeat="key in vm.keys | limitTo: -13">{{key | camelCase | tableResultsKey | capitalize}}</td>
+                    </tr>
+                    <tr ng-repeat="x in vm.data | orderBy:'-score' ">
+                        <td ng-repeat="(key,value) in x"> {{value}} </td>
+                    </tr>
+                </table> <!-- closes individual table -->
+            </section> <!-- closes individual table section -->
+
+        </div> <!-- closes tabular results not including buttons -->
+    </section> <!-- closes full tabular results section including buttons-->
+
+</div> <!-- closes full results page wrapper -->
+

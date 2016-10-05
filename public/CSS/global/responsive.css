@@ -1,0 +1,193 @@
+/* iPhone styling 1px to 480px */
+@media screen and (max-width: 480px) {
+
+/**************************************************
+ABOUT
+**************************************************/
+
+    /* Adjust Navigation Menu to one column */
+    .nav li {
+        display: block;
+        text-align: center;
+    }
+
+    /* Adjust Photo Placement */
+    .cupping {
+        display: inline-block;
+        margin: 10px auto;
+        width: 80%;
+    }
+
+    /* Make sure text doesn't wrap photo */
+    .content p {
+        clear: both;
+    }
+
+    /* Adjust placement of flavour list */
+    .flavors {
+        padding: 0;
+    }
+
+    .flavors li {
+        margin: 0 auto;
+    }
+
+    /* Resize footer for smaller browser window */
+    footer {
+        font-size: 0.75em;
+    }
+
+    .socialMedia {
+        height: 25px;
+        width: 25px;
+    }
+
+/**************************************************
+RESULTS
+**************************************************/
+
+    /* Adjust size of results table to be viewed on mobile phone */
+    .bannerTable div {
+        width:300px;
+    }
+
+    .bannerTable {
+        font-size: 50%;
+    }
+
+    /* Move stars back in line with table */
+    #star-right {
+        width:20px;
+        right: -5px;
+    }
+
+    #star-left {
+        width:20px;
+        left: -5px;
+    }
+
+    /* Resize buttons to fit on screen */
+    button {
+        font-size: 60%;
+        width: 100px;
+    }
+
+    /* Resize individual/roaster results (can only do heading for now, still working on how to resize the massive table */
+
+    .results .contentHeading {
+        font-size: 75%;
+        font-weight: bolder;
+        margin: 5px 0 0 0;
+    }
+
+    /*resize dropdown menu */
+    .dropdown {
+        margin: 3px
+    }
+
+    .dropdown p {
+        font-size:75%
+    }
+
+}
+
+/* Tablet styling 450px to 660px */
+@media screen and (min-width: 480px) and (max-width: 660px) {
+
+/**************************************************
+ABOUT
+**************************************************/
+
+    /* Adjust Photo Placement */
+    .cupping {
+        display: block;
+        margin: 10px 20px 50px 0;
+        width: 40%;
+
+    }
+
+    /* Keep sub heading below image */
+    .contentSubHeading {
+        clear: both;
+    }
+
+    /* Adjust placement of flavour list */
+    .flavors {
+        margin-left: 15%;
+    }
+
+    .flavors li {
+        margin: 0;
+    }
+
+/**************************************************
+RESULTS
+**************************************************/
+
+    /* Adjust size of results table to be viewed on mobile phone */
+    .bannerTable {
+        font-size: 75%;
+    }
+
+    .bannerTable div {
+        width:400px;
+    }
+
+    /* Move stars back in line with table */
+    #star-right {
+        width:30px;
+        postion: absolute;
+        right: -15px;
+    }
+
+    #star-left {
+        width:30px;
+        postion: absolute;
+        left: -15px;
+    }
+
+    /* Resize buttons to fit on screen */
+    button {
+        font-size: 70%;
+        width: 120px;
+    }
+
+    /* Resize individual/roaster results (can only do heading for now, still working on how to resize the massive table */
+
+    .results .contentHeading {
+        font-size: 85%;
+        font-weight: bolder;
+        margin: 5px 0 0 0;
+    }
+
+    /*resize dropdown menu */
+    .dropdown p {
+        font-size:85%;
+    }
+
+}
+
+/* adjust photo size for medium sized screens */
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+
+    /**************************************************
+    ABOUT
+    **************************************************/
+    /* Adjust Photo Placement */
+    .cupping {
+        display: block;
+        margin: 10px 20px 50px 0;
+        width: 40%;
+
+    }
+
+}
+
+/* reduce amount of space text takes up on large screens */
+@media screen and (min-width: 900px) {
+    .content {
+        padding: 0 10%;
+    }
+
+}
