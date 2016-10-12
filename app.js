@@ -4,15 +4,19 @@ var express = require('express'),
     morgan = require('morgan');
 
 var path = require('path');
+var config = require('./config');
 
-var db = mongoose.connect('mongodb://localhost/coffeeAPI');
+var db = mongoose.connect(config.database);
+
 db.set('debug', true);
 
 var Coffee = require('./models/coffeeModel');
 var Individual = require('./models/individualModel');
 var Roaster= require('./models/roasterModel');
+var User= require('./models/userModel');
 
 var app = express();
+app.set('superSecret', config.secret);
 
 var port = process.env.PORT || 3000;
 
@@ -30,9 +34,11 @@ app.use(bodyParser.json());
 var coffeeRoutes = require('./routes/coffeeRoutes')(Coffee);
 var indivRoutes = require('./routes/individualRoutes')(Individual);
 var roasterRoutes = require('./routes/roasterRoutes')(Roaster);
+var authRoutes = require('./routes/authRoutes')(User, app);
 app.use('/api', coffeeRoutes);
 app.use('/api', indivRoutes);
 app.use('/api', roasterRoutes);
+app.use('/api', authRoutes);
 
 app.get('/', function(req, res) {
     res.render('index', { title: 'Cup of Excellence' });
